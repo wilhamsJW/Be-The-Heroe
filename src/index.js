@@ -90,7 +90,6 @@ váriavel express.
 
 
 
-
 /*
 const express = require('express');
 const app = express();
@@ -133,12 +132,10 @@ app.post('/users', (request, response) =>{
    app.listen(3333);
  */
 
- /**
-  * aqui tem uma instalação de bancod e dados
-  */
+ 
 
 
- //                                                            --->Request Body
+ //                                                            ---> Request Body
 
 
  //use o método 'post' do isominia para criação de um recurso ou um usuário conforme exemplo a seguir

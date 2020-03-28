@@ -17,5 +17,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilhamsJW/App-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wilhamsJW/App-project/issues"
+  },
+  "homepage": "https://github.com/wilhamsJW/App-project#readme",
   "description": ""
 }
