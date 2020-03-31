@@ -58,8 +58,10 @@ váriavel express.
     //o nome users dentro da rota é chamado de recursos
     //no app.get('/',) aqui dentro fica todas os recursos q vou acessar do site ex.: app.get('/contato') 
     //recursos é um acesso á uma página da minha aplicação
-    //REQUEST = ele guarda todos os dados que vem através da requisição, a requisiçãoq ue é feita pra 
+
+    //REQUEST = ele guarda todos os dados que vem através da requisição, a requisição que é feita pra 
     //ter acesso ao usuário.
+
     //RESPONSE = é o responsável por retornar uma reposta para o usuário, qundo se diz ali: return response
     //ele está dando uma reposta a requisição feita pelo request
 
@@ -112,6 +114,7 @@ app.post('/users', (request, response) =>{
 //                                                             --->      Acessando Rout Params
 
 //não é acessado por rout e sim por params
+
 //Route Params: Parãmetros utilizados para identificar recursos
 //ele identifica um único recurso, por ex.: tenho uma lista de usuários e quero trazer apenas 1 usuário  
 //note que ele não é nomeado diferente do query q é nomeado, ele usa o prametro de id
@@ -147,7 +150,7 @@ app.post('/users', (request, response) =>{
  const express = require('express');
 
  const routes = require('./routes');
- // './' pra mostar q é um arquivo, se não ele vaia char q é um pacote assim como express
+ // './' pra mostar q é um arquivo, se não ele vai achar q é um pacote assim como express
 
  const app = express();
  

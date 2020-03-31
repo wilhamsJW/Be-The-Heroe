@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
   return  knex.schema.createTable('ongs', function (table){
-     table.string('id').primary();
+     table.string('id').primary();//iremos criar uma id para cada ong, será feito com crypton(na pasta routes)
      table.string('name').notNullable(); 
      table.string('email').notNullable(); 
      table.string('whatsap').notNullable(); 

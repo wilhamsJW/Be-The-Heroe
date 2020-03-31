@@ -6,11 +6,15 @@ module.exports = {
     client: 'sqlite3',
     connection: {
       filename: './src/database/db.sqlite'
+      //a pasta database foi colcocada aqui dentro para uma conexão com banco de dados 
     },
     migrations: {
       directory: './src/database/migrations'
+      //pastas da migrations, foi criada umas migrations com um comando no terminal
+      //acesse knexjs.org para mais informações
     },
     useNullAsDefault: true,
+    //um erro aparecerá sem este código
   },
 
   staging: {
