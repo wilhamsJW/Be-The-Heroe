@@ -45,8 +45,8 @@ const connection = require('./database/connection');
 
 
 
-routes.get('/ongs', (request, response) => {
-    const ongs = connection('ongs').select('*');
+routes.get('/ongs', async (request, response) => {
+    const ongs = await connection('ongs').select('*');
     //connection na tabela ongs, selecione todos os registros q tem na tabela ongs
     // o asterisco quer dizer isso
 
