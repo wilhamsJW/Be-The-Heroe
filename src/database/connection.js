@@ -11,6 +11,7 @@ const connection = knex(configuration.development);
 //e veja várias conexões, tudo que está dentro da pasta knex são conexões.
 //LEMBRETE: Importe o arquivo da variável connection para dentro das pastas q eu preciso
 //que se comunique com o banco de dados
+//exemplo dessa importação está na pasta routes, dessa forma:const connection = require("./database/connection");
 
 module.exports = connection;
-//exportando minha conexão com o banco de dados de debtro da variável acima
+//exportando minha conexão com o banco de dados de dentro da variável acima
