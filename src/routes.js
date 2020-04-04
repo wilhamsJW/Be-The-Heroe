@@ -8,9 +8,13 @@ const OngController = require('./controllers/OngController');
 
 const ProfilleController = require('./controllers/ProfilleController');
 
+const LoginController = require('./controllers/LoginController');
+
 
 
 const routes = express.Router();
+
+routes.post('/login', LoginController.create);
 
 routes.get('/ongs', OngController.index);
 routes.post('/ongs', OngController.create);

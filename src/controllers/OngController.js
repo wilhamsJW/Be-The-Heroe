@@ -37,6 +37,7 @@ module.exports = {
         //número 4 siginifica q ele vai gerar 4 numéros aleatórios para formar
         //a id de cada ong.
       
+        //requisição ao banco de dados pra inserir os itens dentro da função
         await connection("ongs").insert({
           id,
           name,

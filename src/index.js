@@ -1,10 +1,15 @@
 const express = require('express');
 
+const cors = require('cors');
+//
+
  const routes = require('./routes');
  // './' pra mostar q é um arquivo, se não ele vai achar q é um pacote assim como express
 
  const app = express();
  
+ app.use(cors());
+ //aqui se coloca o endereço que vai ficar o site e tbm ele permite q todas as operaçoes frontends possa acessar esse back end
  app.use(express.json());
  //essa linha é de extrema importançia, prq a requisição do body é feita via json, se eu não coloco isso
  //ele retorna undefined, prq não reconheerá o código, com json ele entende e me retornará a requisição
