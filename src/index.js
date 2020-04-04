@@ -1,3 +1,19 @@
+const express = require('express');
+
+ const routes = require('./routes');
+ // './' pra mostar q é um arquivo, se não ele vai achar q é um pacote assim como express
+
+ const app = express();
+ 
+ app.use(express.json());
+ //essa linha é de extrema importançia, prq a requisição do body é feita via json, se eu não coloco isso
+ //ele retorna undefined, prq não reconheerá o código, com json ele entende e me retornará a requisição
+ app.use(routes);
+
+app.listen(3333);
+   
+
+
 //Explanatory code for a better understanding
 //below clean code
 
@@ -86,7 +102,7 @@ váriavel express.
 
 
 
-//clean code
+
 //                                                   ---> Acessando parãmetro através do query
 
 
@@ -147,19 +163,6 @@ app.post('/users', (request, response) =>{
 
 
 
- const express = require('express');
-
- const routes = require('./routes');
- // './' pra mostar q é um arquivo, se não ele vai achar q é um pacote assim como express
-
- const app = express();
  
- app.use(express.json());
- //essa linha é de extrema importançia, prq a requisição do body é feita via json, se eu não coloco isso
- //ele retorna undefined, prq não reconheerá o código, com json ele entende e me retornará a requisição
- app.use(routes);
-
-app.listen(3333);
-   
 
 
