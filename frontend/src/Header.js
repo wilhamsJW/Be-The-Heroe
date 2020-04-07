@@ -1,15 +1,41 @@
 import React from 'react';
+//IMPORTING  REACT
 
-export default function Header() {
-  return (
-    
-    <header>
-      <h1>Wilhams Developer</h1>
-    </header>
+
+ //EXEMPLO 01 DE COMO USAR PROPRIEDADES 
  
-  );
+/*
+export default function Header(props) {
+    return(
+      <header><h1>{props.title}</h1></header>
+ 
+    )
 }
 
-//export default Header;
-//exportando o Header para onde ele quiser ir
-//pode se usar o export defaul antes da function ou uma linha aqui em baixo de quiser
+*/
+
+//Sempre que for injetar uma variável, função ou qq coisa q seja javascript dentro do html
+//do nosso componente vamos utilizar as chaves {}, como o ex. do h1
+ 
+
+
+
+
+//EXEMPLO 02 DE COMO USAR PROPS DE FORMA AUTOMÁTICA
+
+
+
+
+export default function Header(props) {
+    return(
+    <header><h1>{props.children}</h1></header>
+    //usando a propriedade children ele irá atualizar automaticamente
+    //outra maneira legal de fazer isso é passando dentro dos parâmetros a props que vc quer usar
+    //coloque só o nome children na função e no h1
+    //ex.:
+
+    //Na função -> export default function Header({children}) com chaves
+    //no h1 -> <h1>{children}</h1> e corre para o abraço :D
+    )
+}
+
