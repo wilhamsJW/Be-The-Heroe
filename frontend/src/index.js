@@ -3,9 +3,9 @@ import React from 'react';
 //o react é obrigatório está em todo arquivo que eu vou usar html com javascript
 import ReactDOM from 'react-dom';
 //importing DOM, é a integração do react com o DOM, o DOM é arvore de elementos do navegador
-
 import App from './App';
 //importing app, esse app é a pasta App.js
+
 
 
 
