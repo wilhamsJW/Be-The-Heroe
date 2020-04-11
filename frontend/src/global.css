@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/*Lembre de selecionar as fonts 400, 500 e 700
+*/
+
+/*
+Abaixo alguns resetes do css, apenas pra melhorar a aparencia da page
+
+--->>box-sizing
+vai fazer com que os elemnentos sejam fixados na sua largura e altura
+e não somados, se eutiver um elemento com 200px de largura e coloco 20 px de padding
+ele irá ficar com 160px pra manter o padrâo de 200px, ele nâo irá somar pra 240px
+
+--->>body
+utilize duas fonts, se a roboto q é a do crome cair, utiliza outra como a sans-serif
+
+--->>-webkit-font-smoothing: antialised;
+Iá da uma melhorada na visualizção da font do google crome
+
+--->>input, button, textarea
+terâo tamanhos diferenciados
+
+--->>padding: 0 24px; serve pra da um espaçamento dentro da barra de pesquisa
+*/
+
+*{
+    margin:  0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font: 400 14px Roboto, sans-serif;
+    background: #f0f0f5;
+    -webkit-font-smoothing: antialised;
+
+}
+
+input, button, textarea {
+    font: 400 18px Roboto, sans-serif;
+}
+
+button {
+    cursor:pointer;
+}
+
+form input {
+    width: 100%;
+    height: 60px;
+    color: #3333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+    
+}
+
+.button {
+    width: 100%;
+    height: 60px;
+    background: #e02041;
+    border: 0;
+    border-radius: 8px;
+    color:#fff;
+    font-weight: 700;
+    margin-top: 16px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    transition: filter 0.2s;
+
+
+}
+
+
+.button:hover {
+    filter: brightness(90%);
+}
+
+.back-link {
+    width: 100%;
+    max-width: 350px;
+    margin-right: 50px;
+}
+
+.back-link.form form {
+    margin-top: 100px;
+}
+
+.back-link.form h1 {
+    font-size: 32px;
+    margin-bottom: 32px ;
+}
+
+
+.back-link.form a {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    color: #41414d;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.back-link.form a:hover {
+    opacity: 0.8;
+}

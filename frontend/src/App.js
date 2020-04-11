@@ -1,6 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import Header from './Header';
+import './global.css';
+
+import Routes from './routes';
+
+export default function App() {
+  return(
+    <Routes />
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ------>>> O CÓDIGO ENCONTRADO DAQUI PRA BAIXO NÃO FAZ PARTE DO PROJETO É APENAS <<<<--------
+
+
+
+
+
+//ESTUDOS, LEMBRE SE QUE ESTE CÓDIGO ESTÁ SIMULTANEO COM A PASTA HEADER E COM O INDEX.JS 
+//POIS A PASTA APP É IGUAL A DIV ROOT NO HTML, DESSA FORMA:
+//ReactDOM.render(<App />, document.getElementById('root'));
+
+
+
+//import React, { useState } from 'react';
+
+//import Logon from './pages/Logon';
+//não é necessário colocar -> /index , sempre que importamos uma pasta ele sempre procura pelo
+//arquivo index
+
+//import Header from './Header';
+//importação do header caso for trabalhar com o Header
 
 
 //Abaixo alguns ensinamentos sobre propriedades react
@@ -79,9 +122,9 @@ export default App;
 
 //DEFINIÇÃO: Uma informação que vai ser mantida pelo componente, imagine que o componete 
 //precise armazenar algum tipo de informaçâo, um imput de um usuário, ou algo de uma APi externa
-//e aí ele precisa lidar com essa informaçâo, add algo nela, listar itens, excluir et..
-//então no react não podemos simplesmente usar variavei convencionais, precisamos utilizar um conceito
-//chamado estado. Como entender esse conceito? Imagina que queremos exibir um contador que vá de
+//e aí ele precisa lidar com essa informaçâo, add algo nela, listar itens, excluir etc
+//então no react não podemos simplesmente usar variáveis convencionais, precisamos utilizar um conceito
+//chamado ESTADO. Como entender esse conceito? Imagina que queremos exibir um contador que vá de
 //0 á 10
 //ex.:
 
@@ -132,7 +175,7 @@ export default App;
 //                Usando o método estado
 
 /** Agora que entra o conceito de estado, prq toda vez que ele for alterado o componente vai renderizar ou remontar
- * exibindo as novas informações, Como converter este código acima pra ter um estado?
+ * exibindo as novas informações, Como converter este código acima pra ter um ESTADO?
  * comece importando lá no inicio da page o -> useState -> import React, {useState} from 'react';
  * a var count em vez de ser -> let count = 0; vai ser ->  const count = useState(0);
  * Como alterar o valor desse estado? Normalmente seria com -> count ++; mas no react você não pode alterar o valor 
@@ -148,29 +191,35 @@ export default App;
  * 
  */
 
-
+/*
  
    export default function App() {
 
 
     //let count = 0;
     const [count, setCount] = useState(0);
+    //setCount é apenas um nome dado, no lugar do set poderia ser qq outro nome
+    //a letra C maiuscula poderia ser minuscula
   
     function increment () {
       //count ++;
-      setCount(count + 233 );
+      setCount(count + 1 );
       //esse número 1 pode ser qq número, se coloca 2 ele aumenta de 2 em 2 etc
       //console.log(count); apenas pra console
     }
   
     return (
       <div>
-         <header>Casos de Covid-19 : {count} </header>
-         <button onClick={increment}>Pessoas Infectadas</button>
+         <header>Contador : {count} </header>
+         <button onClick={increment}>INCREMENTAR</button>
          
       </div>
     );
-  }  
+  }
+  
+  
+*/
 
-  //export default App;
+
+  //export default App; //PODE EXPORTAR AQUI OU DIRETO NA FUNÇÃO
     

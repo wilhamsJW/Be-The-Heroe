@@ -1,4 +1,6 @@
-import React from 'react';
+//arquivo criado para testes e aprendizados pra quem quiser baixar o código pra estudos
+
+//import React from 'react';
 
 //import App from './App';
 
@@ -58,12 +60,7 @@ export default function Header(props) {
         }
 
 */
-        export default function Header(){
-            return(
-                <h1>Conta Giro</h1>
-            )
-        }
-    
+     
         
 
 

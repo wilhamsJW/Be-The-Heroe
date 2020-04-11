@@ -1,0 +1,51 @@
+/* 
+margin: 0 auto; faz com que o conteúdo sempre fique centralizado na tela
+
+display: flex; ajuda nos alinhamentos. e todos os elementos ficarâo um ao lado do outro a
+menos q a gente mude isso com fle-direction: column; 
+align-items: center; alinha horizontalmente ao centro
+justify-content:  center; alinha verticalmente ao centro
+
+*/
+
+.Logon-container {
+    width: 100%;
+    max-width: 1110%;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content:  center;
+}
+
+.Logon-container section {
+    width: 100%;
+    max-width: 350px;
+    margin-right: 50px;
+}
+
+.Logon-container section.form form {
+    margin-top: 100px;
+}
+
+.Logon-container section.form h1 {
+    font-size: 32px;
+    margin-bottom: 32px ;
+}
+
+
+.Logon-container section.form a {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    color: #41414d;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.Logon-container section.form a:hover {
+    opacity: 0.8;
+}
