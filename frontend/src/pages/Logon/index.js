@@ -28,12 +28,12 @@ export default function Logon() {
             <section className="form">
                 <img src={logoImg} alt="logo da empresa" />
 
-            <form>
+            <form className="back-link">
                 <h1>Faça seu logon</h1>
                 <input placeholder="Sua ID" />
                 <button className="button" type="submit">Entrar</button>
 
-                <Link className="back-link" to="/register">
+                <Link  to="/register">
                     <FiLogIn size={16} color='E02041' />
                  Nâo tenho cadastro</Link>                 
             </form>

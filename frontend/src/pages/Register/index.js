@@ -18,43 +18,39 @@ import {FiArrowLeft} from 'react-icons/fi';
 //por padrâo tem q ser exportado todo arquivo
 export default function Register() {
         return (
-            <div className="Register-container">
+         <div className="register-container">
 
             <div className="content">
                 <section>
                     <img src={logoImg} alt="logo a empresa"></img>
                     <h1>Cadastro</h1>
                     <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos de sua ong</p>
-
-                    <Link className="back-link" to="/register">
-                    <FiArrowLeft size={16} color='E02041' />
-                     Nâo tenho cadastro</Link>  
-                    <form>
+               
+                    <Link className="back-link" to="/" >
+                      <FiArrowLeft size={16} color='E02041' />
+                      Nâo tenho cadastro
+                    </Link> 
+                </section>
+                    
+                     <form>
                         <input placeholder="Nome da ONG" />
                         <input type="email" placeholder="Email" />
-                        <input placeholder="Whatsaap" />
+                        <input placeholder="WhatsApp" />
                         
                         <div className="input-group">
                             <input placeholder="Cidade" />
                             <input placeholder="UF" style={{width: 80}} />  
-                        
-            
-                         <button className="button" type="submit" >Cadastrar</button> 
-                            
                         </div>
+                          <button className="button" type="submit" >Cadastrar</button>  
                     </form>
-                </section>
             </div>
-
-            </div>
-
-            
+        </div>
         );
-        
-}
-
+      } 
 
 //        ---->>>  <input placeholder="UF" style={{width: 80}} /> <<<-----
+
+
 
  //a primeira chave inidca q esto incuindo um um código javascript dentro do htlml 
 //a segunda chave é prq estou incluindo um objeto do javascript, e aí dent
