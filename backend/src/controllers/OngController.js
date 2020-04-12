@@ -28,7 +28,7 @@ module.exports = {
     },
 
     async create(request, response) {
-        const { name, email, whatsapp, city, uf } = request.body;
+        const { name, email, WhatsApp, city, uf } = request.body;
         //função criada para cadastro das ongs
         
        //console.log(data); //apenas pra visualizção no terminal
@@ -42,7 +42,7 @@ module.exports = {
           id,
           name,
           email,
-          whatsapp,
+          WhatsApp,
           city,
           uf
         });

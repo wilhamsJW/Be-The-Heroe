@@ -1,0 +1,129 @@
+                    ----->>>Conectando o back-end com Front-end<<<<-------
+
+Primeiro passo: é navegar até a pasta do back-end com: cd ../backend/ isto dentro do Git
+
+Segundo passo: npm start, após isso vá no insomnia e teste se tá ok
+
+Terceiro passo: Instale um cliente Http, um cliente http é responsável por fzer as chamadas as nossas API do backend e obter as repostas 
+grande parte da comunidade usa o axios, instale: npm install axios
+
+Quarto passo: Após intalar o axios crie uma pasta chamada services e dentro de services crie um arquivo chamado api.js, esta página irá prover conexâo com algum serviço
+externo, importe o axios com: import axios from 'axios'; crie uma var do tipo const, dessa forma: 
+
+const api = axios.create({
+    baseURL: ''
+}) 
+
+passe o parâmetro baseURL:'' coloque dentro das aspas o padrâo do endereço de todas as chamadas, como nosso padrâo é http://localhost:3333 será isso colocado dentro
+das aspas, agora dê um   export default api; para que outros arquivos consigam importar este arquivo
+
+Quinto passo: Vá na página de registro e importe a api q vc exportou pois ela fará a conexâo entre backend e frontend na página
+dessa forma: import api from '../../services/api';
+
+Sexto passo: Crie uma funçâo dentro da funçâo que vc exporta o register, levando em consideraÇão q vc está na pasta register, 
+coloque esta funçâo lá antes do return:   function handleRegister(){}
+ela tem que ser disparada assim q o form dê um submit, vá no form e chame a funçâo lá, dessa forma:
+<form onsubmit="handleRegister">
+
+Por padrâo o botâo submit quando acionado ele atualiza a página, para evitar isso coloque na funçâo handleRegister o parâmetro de submit com a letra e
+dessa forma: function handleRegister(e){} e dentro das chaves coloque um e.preventDefault(); dessa forma: function handleRegister(e){e.preventDefault();}
+assim irá prevenir o comportamento padrâo da página de se carregar toda vez que o submit é acionado
+
+Agora precisamos pegar os dados dos nossos inputs como email,whtatsApp etc e enviar pra nossa API, pra gente armazenar esses dados exite várias estratégias
+no react mas a primeira estratégia é armazenar cada var dessas dos inputs dentro de um estado, importe o estado com:
+import React, {useState} from 'react'; faça isso dentro da importaÇão do react, acrescente a vírgula e as chaves com useState
+
+Sétimo passo: vá na funçâo exportada do register e antes da funçâo handleRegister coloque a var do state q vc acabou de importar, dessa forma:
+const [name, setName] = useState(''); isto é array com 2 posiçôes, a primeira posiçâo é o valor real e a segunda posiçâo é uma funçâo de atuaçlizaÇão
+como ele é uma input de texto, vai começar vazio nos parenteses apenas com as aspas
+repita isso de acordo com a qauntidade de input, dessa forma:
+
+        const [name, setName] = useState();
+        const [email, setEmail] = useState();
+        const [WhatsApp, setWhatsApp] = useState();
+        const [cidade, setCidade] = useState();
+        const [uf, setUf] = useState();              
+   esses foram os inputs do código da minha página
+
+Oitavo Passo: Vá no primeiro input do código: ex.:
+      
+            <input placeholder="Nome da ONG"
+              value={name}
+              />
+           coloque o valor dele que é o primeiro estado da var const, no caso a primeira possiçâo da const array, que é name e segunda é setName
+
+             o código ficará assim:
+
+                <input placeholder="Nome da ONG"
+              value={name}
+              />
+
+          agora coloque um onChanges pra ouvir as mudanças que acontecem neste input, coloque um  e  de evento de mudança e dê um setname(e.target.value)
+          o código ficará assim:
+
+             <input placeholder="Nome da ONG"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              />
+
+     onChange={e => setName(e.target.value)} representa o valor do input, eu to colocando ele dentro da variável name, isto é uma array function
+     ou seja uma funçâo no tamanho reduzido, o -> e , é o parâmetro da minha funçâo e  setName(e.target.value)} é o corpo da minha funçâo
+     todos os outros inputs tem q ficar assim:
+           
+              
+                        <input type="email" placeholder="Email"
+                         value={email}
+                         onChange={e => setEmail(e.target.value)}
+                          />
+
+                        <input placeholder="WhatsApp"
+                          value={WhatsApp}
+                          onChange={e => setWhatsApp(e.target.value)}
+                         />
+                        
+                        <div className="input-group">
+                            <input placeholder="Cidade"
+                             value={cidade}
+                             onChange={e => setCidade(e.target.value)}
+                             />
+                            <input placeholder="UF" style={{width: 80}}
+                              value={uf}
+                              onChange={e => setUf(e.target.value)}
+                               />           
+            
+   
+
+Nono PAsso : Crie uma variável do tipo const chamado data dentro da funçâo exportadora, assim:
+
+         export default function Register() {
+
+        const [name, setName] = useState();
+        const [email, setEmail] = useState();
+        const [WhatsApp, setWhatsApp] = useState();
+        const [cidade, setCidade] = useState();
+        const [uf, setUf] = useState();
+
+
+        function handleRegister(e) {
+          e.preventDefault();
+        
+          const data = {
+            name,
+            email,
+            WhatsApp,
+            cidade,
+            uf,
+          };
+             api.post('ongs, data')
+
+                 Agora precisamos enviar esses dados pra minha API, Como fazer? Veremos:
+
+                 Supondo que as rotas ja estava criada, vá no isominia e veja a pasta create do metódo post do tipo create, lá tem esses mesmos dados
+                 com a rota '/ongs' ,  criada no backend, na pasta database dentro dos arquivos das migrations, '/ongs' é uma tabela criada para armazenamento
+                 de todos os dados de cadastro de uma ong, portanto dentro da funçâo acima coloque este código: api.post('ongs, data'), o código já está lá
+                 em cima. Post = enviar pu criar tbm, a rota é ongs e a var q vai enviar é data, por padrâo o axion q estamos usando já envia em formato JSON,
+                 nâo temos esse trabalho, o axios é o q tá sendo usado dentro da pasta api no frontend.
+                 
+                 Isso por si só já vai se conectar com o banco de dados, mas preciso retornar uma msg pra o usuário pra ele saber se o cadastro foi feito com sucesso
+                 ou nâo..
+                 
