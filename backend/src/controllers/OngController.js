@@ -28,7 +28,7 @@ module.exports = {
     },
 
     async create(request, response) {
-        const { name, email, WhatsApp, city, uf } = request.body;
+        const { name, email, whatsApp, cidade, uf } = request.body;
         //função criada para cadastro das ongs
         
        //console.log(data); //apenas pra visualizção no terminal
@@ -42,8 +42,8 @@ module.exports = {
           id,
           name,
           email,
-          WhatsApp,
-          city,
+          whatsApp,
+          cidade,
           uf
         });
 
@@ -58,7 +58,7 @@ module.exports = {
         };
          /**
    * Especificações sobre: await connection('ongs').insert({
-   *   aqui dentro fica todas as colunas q eu quero inseri ali dentro
+   *   aqui dentro fica todas as colunas q eu quero inserir ali dentro
    * ex.: id, email, nome, whatsap, city, uf..
    *
    * });

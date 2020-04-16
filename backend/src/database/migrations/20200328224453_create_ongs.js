@@ -4,7 +4,7 @@ exports.up = function(knex) {
      table.string('id').primary();//iremos criar uma id para cada ong, será feito com crypton(na pasta routes)
      table.string('name').notNullable(); 
      table.string('email').notNullable(); 
-     table.string('WhatsApp').notNullable(); 
+     table.string('whatsApp').notNullable(); 
      table.string('cidade').notNullable(); 
      table.string('uf', 2).notNullable(); //uf = estado, 2 siginifica duas letras, ex.:SP, SC, RJ, PE..
     })

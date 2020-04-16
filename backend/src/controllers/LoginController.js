@@ -7,13 +7,13 @@ module.exports = {
     async create(request, response) {
 
         const {id} = request.body;
-        //o login que eu quero saber pra verificar se existe no bancod e dados vai vim através
-        //do corpo da mnha requisição
+        //o login que eu quero saber pra verificar se existe no banco de dados vai vim através
+        //do corpo da minha requisição
         const ong = await connection('ongs')
         .where('id', id)
         .select('name')
         .first();
-        //first pra não me retornar um array e sim apens um resultado
+        //first pra não me retornar um array e sim apenas um resultado
 
 
         if(!ong) {

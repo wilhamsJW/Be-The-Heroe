@@ -6,10 +6,14 @@ import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
 
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 //componente link usado pra criar um link. Òbvio, ele é responsável por evitar que toda a página 
 //se carregue quando mudamos de rota, no html seu usa a tag <a></a>, porém com a tag a irá
 //carregar a página por completo
+
+//useHistory serve pra fazer uma navegaçâo com uma funçâo javascript, quando nâo fica legal 
+//colocar link ou botâo de redirecionamento, é meio que uma forma automática de enviar
+//o usuário pra uma pagina após ter clikado um botâo de finalizar cadastro por exemplo
 
 import {FiArrowLeft} from 'react-icons/fi';
 
@@ -17,17 +21,23 @@ import api from '../../services/api';
 //depois de instalar o react-icons vc pode usar vários pacotes dentro dele, o q vamos usar
 //é o FI ou fithericons, olhe no site sobre fithericons, dentro das chaves eu coloco
 //qual item quero usar. dentro das chaves de um ctrl espaço e vai aparecer todos q vc quer
-//olhe no site pra saber o nome correto de cada e digite Fi+nomedoicon -> FilogIn
+//olhe no site pra saber o nome correto de cada um e digite Fi+nomedoicon -> FilogIn
 
 //por padrâo tem q ser exportado todo arquivo
 export default function Register() {
 
         const [name, setName] = useState();
         const [email, setEmail] = useState();
-        const [WhatsApp, setWhatsApp] = useState();
+        const [whatsApp, setWhatsApp] = useState();
         const [cidade, setCidade] = useState();
         const [uf, setUf] = useState();
-
+        
+        const hitory = useHistory();
+        //useHistory serve pra fazer uma navegaçâo com uma funçâo javascript, quando nâo fica legal 
+        //colocar link ou botâo de redirecionamento, é meio que uma forma automática de enviar
+        //o usuário pra uma pagina após ter clikado um botâo de finalizar cadastro por exemplo
+        //importe useHistory lá em cima, e coloque ele onder quer q seja usado. aqui ele está
+        //após o alert
 
         async function handleRegister(e) {
           e.preventDefault();
@@ -35,18 +45,31 @@ export default function Register() {
           const data = {
             name,
             email,
-            WhatsApp,
+            whatsApp,
             cidade,
             uf,
           };
 
-          try {
+          //nome da var pode ser qq nome, até seu próprio nome
+          //api.post('ongs', data) //com esse código consigo enviar os dados pra minha APi
+          //api é a pasta criada com o axios dentro, axio q é responsável pelas chamadas http
+          //api.post é p método utilizado para conexâo com o banco de dados, 'ongs' é a rota
+          //criada no backend nas migrations como forma de armazenamento de dados, data é a
+          //var q criamos acima, contendo vários dados, esta variável vai enviar ao banco de dados
+          //os dados q o usuário está digitando e irá enviar
+          
+      try{
             const response = await api.post('ongs', data);
+            //await api.post('ongs', data); este código faz minha conexâo com o banco de dados
   
-            alert(`Este é seu ID de acesso, Anote agora mesmo: ${response.data.id}`);
+           alert(`Este é seu ID de acesso, Anote agora mesmo: ${response.data.id}`);
+
+           hitory.push('/');//esta barra é página inicial q ficou com essa identificaçâo
+           //isso levará o usuário a outra página após finalizar o cadastro
+
           } catch(err) {
             alert('Erro no cadastro, tente novamente.')
-          }
+            } 
         } 
           
           //dê um console.log apenas pra ve se deu tudo certo
@@ -85,8 +108,8 @@ export default function Register() {
                          onChange={e => setEmail(e.target.value)}
                           />
 
-                        <input placeholder="WhatsApp"
-                          value={WhatsApp}
+                        <input placeholder="whatsApp"
+                          value={whatsApp}
                           onChange={e => setWhatsApp(e.target.value)}
                          />
                         

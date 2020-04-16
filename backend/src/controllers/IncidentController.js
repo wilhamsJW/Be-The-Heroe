@@ -17,7 +17,7 @@ module.exports = {
 
         //console.log(count);(apenas pra ver no terminal)
         //count = contagem/ irá contar quantos incidents tem pra rertornar uma resposta ao 
-        //front end.
+        //frontend.
 
 
         const incidents = await connection('incidents')
@@ -27,9 +27,9 @@ module.exports = {
         //comparação epra trazer ambos os dados das tabelas// sem ele funciona tbm
         .limit(5)
         .offset((page - 1 ) * 5)
-        .select(['incidents.*', 'ongs.name', 'ongs.email', 'ongs.whatsapp', 'ongs.city', 'ongs.uf']);
-        //coloquei um array dentro do select, array é reprensentado por colchetes,dessa forma seleciono os itens
-        //sem esse array ele mistura o id dos icnidents criados com a id da ong, prq ambos tem o mesmo nome 'id'
+        .select(['incidents.*', 'ongs.name', 'ongs.email', 'ongs.whatsApp', 'ongs.cidade', 'ongs.uf']);
+        //coloquei um array dentro do select, array é reprensentado por colchetes,dessa forma seleciono os itens.
+        //sem esse array ele mistura o id dos incidents criados com a id da ong, prq ambos tem o mesmo nome 'id'
         //estou selecionando todos com * mas os da ong eu quero esses aí
 
         response.header('x-total-count', count['count(*)']);

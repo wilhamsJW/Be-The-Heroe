@@ -1,4 +1,4 @@
-                    ----->>>Conectando o back-end com Front-end<<<<-------
+                    ----->>>Conectando o backend com Frontend<<<<-------
 
 Primeiro passo: é navegar até a pasta do back-end com: cd ../backend/ isto dentro do Git
 
@@ -50,7 +50,8 @@ Oitavo Passo: Vá no primeiro input do código: ex.:
             <input placeholder="Nome da ONG"
               value={name}
               />
-           coloque o valor dele que é o primeiro estado da var const, no caso a primeira possiçâo da const array, que é name e segunda é setName
+           coloque o valor dele que é o primeiro estado da var const, no caso a primeira possiçâo da const array, 
+           que é name e segunda é setName
 
              o código ficará assim:
 
@@ -58,7 +59,8 @@ Oitavo Passo: Vá no primeiro input do código: ex.:
               value={name}
               />
 
-          agora coloque um onChanges pra ouvir as mudanças que acontecem neste input, coloque um  e  de evento de mudança e dê um setname(e.target.value)
+          agora coloque um onChanges pra ouvir as mudanças que acontecem neste input, coloque um  e  de evento de 
+          mudança e dê um setname(e.target.value)
           o código ficará assim:
 
              <input placeholder="Nome da ONG"
@@ -66,8 +68,10 @@ Oitavo Passo: Vá no primeiro input do código: ex.:
               onChange={e => setName(e.target.value)}
               />
 
-     onChange={e => setName(e.target.value)} representa o valor do input, eu to colocando ele dentro da variável name, isto é uma array function
-     ou seja uma funçâo no tamanho reduzido, o -> e , é o parâmetro da minha funçâo e  setName(e.target.value)} é o corpo da minha funçâo
+     onChange={e => setName(e.target.value)} representa o valor do input, eu to colocando ele dentro da variável name,
+      isto é uma array function
+     ou seja uma funçâo no tamanho reduzido, o -> e , é o parâmetro da minha funçâo e  setName(e.target.value)} é o 
+     corpo da minha funçâo
      todos os outros inputs tem q ficar assim:
            
               
@@ -114,16 +118,34 @@ Nono PAsso : Crie uma variável do tipo const chamado data dentro da funçâo ex
             cidade,
             uf,
           };
-             api.post('ongs, data')
+             api.post('ongs', data)
 
                  Agora precisamos enviar esses dados pra minha API, Como fazer? Veremos:
 
-                 Supondo que as rotas ja estava criada, vá no isominia e veja a pasta create do metódo post do tipo create, lá tem esses mesmos dados
-                 com a rota '/ongs' ,  criada no backend, na pasta database dentro dos arquivos das migrations, '/ongs' é uma tabela criada para armazenamento
-                 de todos os dados de cadastro de uma ong, portanto dentro da funçâo acima coloque este código: api.post('ongs, data'), o código já está lá
-                 em cima. Post = enviar pu criar tbm, a rota é ongs e a var q vai enviar é data, por padrâo o axion q estamos usando já envia em formato JSON,
+                 Supondo que as rotas ja estava criada, vá no isominia e veja a pasta create do metódo post do tipo 
+                 create, lá tem esses mesmos dados
+                 com a rota '/ongs' ,  criada no backend, na pasta database dentro dos arquivos das migrations, 
+                 '/ongs' é uma tabela criada para armazenamento
+                 de todos os dados de cadastro de uma ong, portanto dentro da funçâo acima coloque este código: 
+                 api.post('ongs', data), o código já está lá
+                 em cima. Post = enviar pu criar tbm, a rota é ongs, e a var q vai enviar é chamada data, por padrâo o axion
+                  q estamos usando já envia em formato JSON,
                  nâo temos esse trabalho, o axios é o q tá sendo usado dentro da pasta api no frontend.
                  
-                 Isso por si só já vai se conectar com o banco de dados, mas preciso retornar uma msg pra o usuário pra ele saber se o cadastro foi feito com sucesso
-                 ou nâo..
+                 Isso por si só já vai se conectar com o banco de dados, mas preciso retornar uma msg pra o usuário
+                  pra ele saber se o cadastro foi feito com sucesso
+                 ou nâo.. o código será esse:
+
+
+                       try {
+            const response = await api.post('ongs', data);
+  
+            alert(`Este é seu ID de acesso, Anote agora mesmo: ${response.data.id}`);
+
+           hitory.push('/');//esta barra é página inicial q ficou com essa identificaçâo
+
+          } catch(err) {
+            alert('Erro no cadastro, tente novamente.')
+            } 
+        } 
                  
