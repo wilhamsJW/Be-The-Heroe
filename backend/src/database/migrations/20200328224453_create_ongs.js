@@ -18,6 +18,7 @@ exports.down = function(knex) {
  * Método 'up' ou 'exports.up' é responsável pela criação da tabela, o q vai acontecer qndo a tabela for exceutada
  * Método 'down' ou 'exports.down' é reposnável pelo delete de uma tabela ou desfazer uma tabela
  * dropTable = desfazer tabela
+ * 
  * return tem q ser colocado pra poder atualizar o banco, se não colocar irá retornar a seguinte msg ->
  * migration 20200328224453_create_ongs.js did not return a promise, esta msg diz q não retornou a promessa
  * 

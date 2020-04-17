@@ -28,12 +28,13 @@ import api from '../../services/api';
 
 //por padrâo tem q ser exportado todo arquivo
 export default function Register() {
-
+        
         const [name, setName] = useState();
         const [email, setEmail] = useState();
         const [whatsApp, setWhatsApp] = useState();
         const [cidade, setCidade] = useState();
         const [uf, setUf] = useState();
+        
         
         const hitory = useHistory();
         //useHistory serve pra fazer uma navegaçâo com uma funçâo javascript, quando nâo fica legal 
@@ -185,4 +186,6 @@ export default function Register() {
  * tem acesso ao banco de dados e o data tem os ultimos dados que o usuário digitou inclusive
  * a nova id do usuário q já foi gerada, entâo se vc coloca apenas id dentro das chaves nâo dará certo
  * pq nâo terá acesso ao banco de dados pra retornar a id
+ * 
+ * 
  */
