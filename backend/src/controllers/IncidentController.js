@@ -104,7 +104,7 @@ incident é a mesma id do incident a ser apagado, pq uma ong não pode deletar o
 incident de outra ong          
   
 requeste.headers acessa o cabeçalho da requisição, ele guarda informações sobre
-dados do usuários, dados sobre o idiomaa id das ongs.
+dados do usuários, dados sobre o idioma id das ongs.
 LEMBRETE: ir no isominia e criar uma pasta do tipo post via json, ir no headers do
 isominia e colocar o nome Authorization(pode ser qq nome) e uma id no value.
 request.headers.authorization; este é o nome q tá la no insominia, o authorization

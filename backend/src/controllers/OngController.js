@@ -64,7 +64,7 @@ module.exports = {
    * });
    *
    * await = só pode ser usado se a função for assícrona(async),
-   * quando o node chegar no código com o await ele irá aguardar, que é jusatamente
+   * quando o node chegar no código com o await ele irá aguardar, que é justamente
    * a tradução dessa palavra (await = aguardar) então ele só continuára depois q finalizar
    * o código.
    *
@@ -74,16 +74,13 @@ module.exports = {
    */
 
 
-
-
-
 /**
    * Erro ao retornar reposta ao usuário, a reposta que seria a id do cliente
    * quando a resposta não for criada mas mesmo assim aparace a inserção dos meus dados
    * no terminal e parecer um erro dizendo: no such table ongs, quer dizer q ele não a tabela ongs
    * execute as migrations novamente com:
    * 1° Delete o banco inteiro pasta: db.sqlite,
-   * 2° Excute as migrations com: npx knex migrate:latest
+   * 2° Excute as migrations com: npx knex migrate:latest 
    * 3° Excute: npm start para reinicilaizar o servidor node
    * 4º Vá no insominia e faça o teste
    * 
