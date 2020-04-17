@@ -29,7 +29,11 @@ module.exports = {
 
     async create(request, response) {
         const { name, email, whatsApp, cidade, uf } = request.body;
-        //função criada para cadastro das ongs
+        //request.body quer dizer que esses dados vem do corpo do meu site
+        //esta variável irá receber os dados da requiçâo geita pelo o usuário
+        //o código só até o banco de dados prq esta linha é reposnsável por receber 
+        //as atualizações enviadas do site para o backend ou pra seerem armazanadas no banco de dados
+        
         
        //console.log(data); //apenas pra visualizção no terminal
       
@@ -38,14 +42,20 @@ module.exports = {
         //a id de cada ong.
       
         //requisição ao banco de dados pra inserir os itens dentro da função
+        
+
+        //esta funçâo insere os dados recebido pela var do tipo const lá em cima, a var recebe
+        //através do requeste.body os dados enviados pelo usuário, e essa funçÂo insere no
+        // banco de dados, através da var conection, da pasta conection
         await connection("ongs").insert({
-          id,
+          id, 
           name,
           email,
           whatsApp,
           cidade,
           uf
         });
+        
 
 
         return response.json({ id });
